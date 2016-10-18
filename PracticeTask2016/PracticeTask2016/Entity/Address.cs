@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PracticeTask2016.Entity
 {
-    public class Adress
+    public class Address
     {
         public string street { get; set; }
         public string house { get; set; }

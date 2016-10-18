@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace PracticeTask2016.Entity
 {
-    public class Employees
+    public class Employee
     {
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string middleName { get; set; }
         public DateTime birthday { get; set; }
         public string phoneNumber { get; set; }
-        public Adress adress { get; set; }
+        public Address address { get; set; }
     }
 }

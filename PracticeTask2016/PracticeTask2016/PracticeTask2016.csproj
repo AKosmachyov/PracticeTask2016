@@ -46,8 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\Adress.cs" />
-    <Compile Include="Entity\Employees.cs" />
+    <Compile Include="Entity\Address.cs" />
+    <Compile Include="Entity\Employee.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
