@@ -25,8 +25,9 @@ namespace PracticeTask2016
         {           
             var window = new EmployeeEditor();
             this.Hide();            
-            window.ShowDialog();                       
-            Core.addEmployees(window.getCurrentEmployee());            
+            window.ShowDialog();
+            if (window.getCurrentEmployee() != null)                 
+                Core.addEmployees(window.getCurrentEmployee());            
             this.Show();
         }
 
@@ -54,10 +55,11 @@ namespace PracticeTask2016
         {
             var employee = Core.getEmployees()[dataGridView1.CurrentCell.RowIndex];
             var window = new EmployeeEditor(employee);
+            this.Hide();
             window.ShowDialog();
-            if (window.getCurrentEmployee() == null)
-                return;
-            Core.getEmployees()[dataGridView1.CurrentCell.RowIndex] = window.getCurrentEmployee();
+            if (window.getCurrentEmployee() != null)                
+                Core.getEmployees()[dataGridView1.CurrentCell.RowIndex] = window.getCurrentEmployee();
+            this.Show();
         }
     }
 }

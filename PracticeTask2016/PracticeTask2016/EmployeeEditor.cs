@@ -55,5 +55,10 @@ namespace PracticeTask2016
             _employee.address = address;
             this.Close();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
