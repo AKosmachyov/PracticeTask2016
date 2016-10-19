@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using PracticeTask2016.Entity;
 
 namespace PracticeTask2016
 {
@@ -42,6 +43,21 @@ namespace PracticeTask2016
                 return;
             Core.openFile(openFileDialog1.FileName);
             dataGridView1.DataSource = Core.getEmployees();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Core.deleteEmployees(dataGridView1.CurrentCell.RowIndex);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            var employee = Core.getEmployees()[dataGridView1.CurrentCell.RowIndex];
+            var window = new EmployeeEditor(employee);
+            window.ShowDialog();
+            if (window.getCurrentEmployee() == null)
+                return;
+            Core.getEmployees()[dataGridView1.CurrentCell.RowIndex] = window.getCurrentEmployee();
         }
     }
 }

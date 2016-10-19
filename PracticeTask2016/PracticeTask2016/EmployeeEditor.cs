@@ -18,21 +18,34 @@ namespace PracticeTask2016
             InitializeComponent();
         }
 
-        public Employee _employee = new Employee();
+        public EmployeeEditor(Employee employee)
+        {
+            InitializeComponent();
+
+            textBox1.Text = employee.lastName;
+            textBox2.Text = employee.firstName;
+            textBox3.Text = employee.middleName;
+            dateTimePicker1.Value = employee.birthday;
+            textBox4.Text = employee.phoneNumber;            
+            textBox5.Text = employee.address.street;
+            textBox6.Text = employee.address.house;
+            textBox7.Text = employee.address.apartment;           
+        }
+
+        public Employee _employee;
 
         public Employee getCurrentEmployee()
         {
             return _employee;
         }
-        
 
         private void button1_Click(object sender, EventArgs e)
         {
+            _employee = new Employee();
             var address = new Address();
             address.street = textBox5.Text;
             address.house = textBox6.Text;
-            address.apartment = textBox7.Text;
-                        
+            address.apartment = textBox7.Text;                        
 
             _employee.lastName = textBox1.Text;
             _employee.firstName = textBox2.Text;
