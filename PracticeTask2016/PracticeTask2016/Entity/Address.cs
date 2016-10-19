@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PracticeTask2016.Entity
 {
+    [Serializable]
     public class Address
     {
         public string street { get; set; }

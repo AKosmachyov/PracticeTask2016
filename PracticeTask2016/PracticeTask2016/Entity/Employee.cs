@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace PracticeTask2016.Entity
 {
+    [Serializable]
     public class Employee
     {
         public string firstName { get; set; }
@@ -14,5 +15,7 @@ namespace PracticeTask2016.Entity
         public DateTime birthday { get; set; }
         public string phoneNumber { get; set; }
         public Address address { get; set; }
+        [NonSerialized]
+        public DateTime createDate = DateTime.Now;
     }
 }

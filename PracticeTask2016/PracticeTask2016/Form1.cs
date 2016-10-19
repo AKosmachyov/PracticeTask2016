@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PracticeTask2016.Core;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace PracticeTask2016
 {
@@ -16,7 +17,7 @@ namespace PracticeTask2016
         public Form1()
         {
             InitializeComponent();
-            dataGridView1.DataSource = Core.Core.getEmployees();
+            dataGridView1.DataSource = Core.getEmployees();
         }
                 
         private void button1_Click(object sender, EventArgs e)
@@ -24,13 +25,23 @@ namespace PracticeTask2016
             var window = new EmployeeEditor();
             this.Hide();            
             window.ShowDialog();                       
-            Core.Core.addEmployees(window.getCurrentEmployee());            
+            Core.addEmployees(window.getCurrentEmployee());            
             this.Show();
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            Core.saveFile(saveFileDialog1.FileName);
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.Cancel)
+                return;
+            Core.openFile(openFileDialog1.FileName);
+            dataGridView1.DataSource = Core.getEmployees();
         }
     }
 }
