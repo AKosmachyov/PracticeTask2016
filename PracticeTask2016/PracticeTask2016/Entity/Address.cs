@@ -11,5 +11,10 @@ namespace PracticeTask2016.Entity
         public string street { get; set; }
         public string house { get; set; }
         public string apartment { get; set; }
-    }
+
+        public override string ToString()
+        {
+            return street + ' ' + house + '/' + apartment;
+        }
+    }    
 }
