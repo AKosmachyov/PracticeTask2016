@@ -61,5 +61,12 @@ namespace PracticeTask2016
                 Core.getEmployees()[dataGridView1.CurrentCell.RowIndex] = window.getCurrentEmployee();
             this.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            var employees = Core.getEmployees();
+            var query = textBox1.Text;
+            var result = employees.Where(x=>x.address.house%2==0).First(x => x.address.street.Contains(query));
+        }
     }
 }
