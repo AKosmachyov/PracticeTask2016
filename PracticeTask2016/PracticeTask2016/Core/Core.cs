@@ -48,9 +48,9 @@ namespace PracticeTask2016
             fs.Close();
         }
 
-        static public void deleteEmployees(int index)
-        {        
-            _employees.RemoveAt(index);
+        static public void deleteEmployees(Employee employee)
+        {
+            _employees.Remove(employee);            
         }
     }
 }
