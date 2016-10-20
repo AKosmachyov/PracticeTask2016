@@ -48,17 +48,23 @@ namespace PracticeTask2016
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Core.deleteEmployees(dataGridView1.CurrentCell.RowIndex);
+            Core.deleteEmployees((Employee)dataGridView1.CurrentRow.DataBoundItem);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var employee = Core.getEmployees()[dataGridView1.CurrentCell.RowIndex];
-            var window = new EmployeeEditor(employee);
+            var oldEmployee = (Employee)dataGridView1.CurrentRow.DataBoundItem;
+            var window = new EmployeeEditor(oldEmployee);
             this.Hide();
             window.ShowDialog();
-            if (window.getCurrentEmployee() != null)                
-                Core.getEmployees()[dataGridView1.CurrentCell.RowIndex] = window.getCurrentEmployee();
+            if (window.getCurrentEmployee() != null)
+            {
+                var newEmployee = window.getCurrentEmployee();
+
+                var arr = (BindingList<Employee>)Core.getEmployees();
+                var index = arr.IndexOf(oldEmployee);
+                arr[index] = newEmployee;      
+            }
             this.Show();
         }
 
