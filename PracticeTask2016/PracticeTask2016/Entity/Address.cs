@@ -10,8 +10,8 @@ namespace PracticeTask2016.Entity
     public class Address
     {
         public string street { get; set; }
-        public string house { get; set; }
-        public string apartment { get; set; }
+        public byte house { get; set; }
+        public byte apartment { get; set; }
 
         public override string ToString()
         {

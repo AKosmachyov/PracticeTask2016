@@ -28,8 +28,8 @@ namespace PracticeTask2016
             dateTimePicker1.Value = employee.birthday;
             textBox4.Text = employee.phoneNumber;            
             textBox5.Text = employee.address.street;
-            textBox6.Text = employee.address.house;
-            textBox7.Text = employee.address.apartment;           
+            textBox6.Text = employee.address.house.ToString();
+            textBox7.Text = employee.address.apartment.ToString();           
         }
 
         public Employee _employee;
@@ -44,8 +44,8 @@ namespace PracticeTask2016
             _employee = new Employee();
             var address = new Address();
             address.street = textBox5.Text;
-            address.house = textBox6.Text;
-            address.apartment = textBox7.Text;                        
+            address.house = Convert.ToByte(textBox6.Text);
+            address.apartment = Convert.ToByte(textBox7.Text);                        
 
             _employee.lastName = textBox1.Text;
             _employee.firstName = textBox2.Text;
