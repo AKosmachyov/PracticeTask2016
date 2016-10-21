@@ -16,7 +16,7 @@ namespace PracticeTask2016
 
         static public BindingList<Employee> getEmployees()
         {
-            return new BindingList<Employee>(_employees);
+            return _employees;
         }
 
         static public void addEmployees(Employee employee)

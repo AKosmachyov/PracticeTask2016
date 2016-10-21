@@ -20,16 +20,6 @@ namespace PracticeTask2016
             InitializeComponent();
             dataGridView1.DataSource = Core.getEmployees();
         }
-                
-        private void button1_Click(object sender, EventArgs e)
-        {           
-            var window = new EmployeeEditor();
-            this.Hide();            
-            window.ShowDialog();
-            if (window.getCurrentEmployee() != null)                 
-                Core.addEmployees(window.getCurrentEmployee());            
-            this.Show();
-        }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -46,6 +36,14 @@ namespace PracticeTask2016
             dataGridView1.DataSource = Core.getEmployees();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var window = new EmployeeEditor();
+            this.Hide();
+            window.ShowDialog();
+            this.Show();
+        }
+
         private void button2_Click(object sender, EventArgs e)
         {
             Core.deleteEmployees((Employee)dataGridView1.CurrentRow.DataBoundItem);
@@ -53,18 +51,9 @@ namespace PracticeTask2016
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var oldEmployee = (Employee)dataGridView1.CurrentRow.DataBoundItem;
-            var window = new EmployeeEditor(oldEmployee);
+            var window = new EmployeeEditor((Employee)dataGridView1.CurrentRow.DataBoundItem);
             this.Hide();
             window.ShowDialog();
-            if (window.getCurrentEmployee() != null)
-            {
-                var newEmployee = window.getCurrentEmployee();
-
-                var arr = (BindingList<Employee>)Core.getEmployees();
-                var index = arr.IndexOf(oldEmployee);
-                arr[index] = newEmployee;      
-            }
             this.Show();
         }
 
