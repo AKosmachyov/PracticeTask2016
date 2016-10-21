@@ -9,6 +9,11 @@ namespace PracticeTask2016.Entity
     [Serializable]
     public class Employee
     {
+        public Employee()
+        {
+            address = new Address();
+        }
+
         public string firstName { get; set; }
         public string lastName { get; set; }
         public string middleName { get; set; }
