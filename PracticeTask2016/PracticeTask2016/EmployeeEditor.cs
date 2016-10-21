@@ -33,9 +33,11 @@ namespace PracticeTask2016
             textBox5.Text = employee.address.street;
             textBox6.Text = employee.address.house.ToString();
             textBox7.Text = employee.address.apartment.ToString();           
+            isNew = false;
         }
 
         private Employee _employee = new Employee();
+        private Boolean isNew = true;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -53,7 +55,8 @@ namespace PracticeTask2016
                 _employee.birthday = dateTimePicker1.Value;
                 _employee.phoneNumber = textBox4.Text;
 
-                Core.addEmployees(_employee);
+                if (isNew)
+                    Core.addEmployees(_employee);
                 this.Close();
             }
             catch (Exception ex)
