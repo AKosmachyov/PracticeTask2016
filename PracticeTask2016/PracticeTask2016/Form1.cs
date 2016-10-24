@@ -64,8 +64,10 @@ namespace PracticeTask2016
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            var query = textBox1.Text;
-            dataGridView1.DataSource = Core.getEmployeesWithFilters(query);
+            var lastname = textBox1.Text;
+            var firstname = textBox2.Text;
+            //var t = comboBox1.SelectedIndex;            
+            dataGridView1.DataSource = Core.getEmployeesWithFilters(lastname);
         }
     }
 }

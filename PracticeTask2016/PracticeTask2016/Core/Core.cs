@@ -55,7 +55,10 @@ namespace PracticeTask2016
 
         static public BindingList<Employee> getEmployeesWithFilters(string query)
         {
-            return new BindingList<Employee>(_employees.Where(x => x.lastName.Contains(query)).ToList());
+            var filterList = new BindingList<Employee>(_employees);
+            filterList = new BindingList<Employee>(filterList.Where(x => x.lastName.Contains(query)).ToList());
+         
+            return filterList;
         }
     }
 }
