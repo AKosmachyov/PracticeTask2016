@@ -52,5 +52,10 @@ namespace PracticeTask2016
         {
             _employees.Remove(employee);            
         }
+
+        static public BindingList<Employee> getEmployeesWithFilters(string query)
+        {
+            return new BindingList<Employee>(_employees.Where(x => x.lastName.Contains(query)).ToList());
+        }
     }
 }
