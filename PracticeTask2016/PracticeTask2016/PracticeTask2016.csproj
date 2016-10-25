@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\edit.png" />
+    <Content Include="Images\ico.ico" />
     <Content Include="Images\minus.png" />
     <Content Include="Images\plus.png" />
   </ItemGroup>

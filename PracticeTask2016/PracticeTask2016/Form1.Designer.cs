@@ -31,21 +31,22 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.button1 = new System.Windows.Forms.Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.lastNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.firstNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.middleNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,16 +59,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.employeeBindingSource)).BeginInit();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Image = global::PracticeTask2016.Properties.Resources.plus;
-            this.button1.Location = new System.Drawing.Point(615, 38);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(45, 38);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // dataGridView1
             // 
@@ -92,7 +83,7 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(585, 150);
-            this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.TabIndex = 99999;
             // 
             // menuStrip1
             // 
@@ -130,26 +121,6 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "\"Текстовый файл (*.txt)|*.txt|All files (*.*)|*.*\"";
             // 
-            // button2
-            // 
-            this.button2.Image = global::PracticeTask2016.Properties.Resources.minus;
-            this.button2.Location = new System.Drawing.Point(615, 82);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(45, 38);
-            this.button2.TabIndex = 4;
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // button3
-            // 
-            this.button3.Image = global::PracticeTask2016.Properties.Resources.edit;
-            this.button3.Location = new System.Drawing.Point(615, 126);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(45, 38);
-            this.button3.TabIndex = 5;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton2);
@@ -170,7 +141,7 @@
             this.radioButton2.Location = new System.Drawing.Point(270, 20);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(64, 17);
-            this.radioButton2.TabIndex = 33;
+            this.radioButton2.TabIndex = 6;
             this.radioButton2.Text = "Четные";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -182,7 +153,7 @@
             this.radioButton1.Location = new System.Drawing.Point(220, 20);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(44, 17);
-            this.radioButton1.TabIndex = 32;
+            this.radioButton1.TabIndex = 5;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Все";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -194,7 +165,7 @@
             this.label9.Location = new System.Drawing.Point(184, 22);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(30, 13);
-            this.label9.TabIndex = 31;
+            this.label9.TabIndex = 9999;
             this.label9.Text = "Дом";
             // 
             // label8
@@ -203,7 +174,7 @@
             this.label8.Location = new System.Drawing.Point(8, 22);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 13);
-            this.label8.TabIndex = 30;
+            this.label8.TabIndex = 9999;
             this.label8.Text = "Улица";
             // 
             // textBox5
@@ -211,8 +182,40 @@
             this.textBox5.Location = new System.Drawing.Point(53, 19);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(120, 20);
-            this.textBox5.TabIndex = 29;
+            this.textBox5.TabIndex = 4;
             this.textBox5.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // button3
+            // 
+            this.button3.Image = global::PracticeTask2016.Properties.Resources.edit;
+            this.button3.Location = new System.Drawing.Point(615, 126);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(45, 38);
+            this.button3.TabIndex = 3;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button2
+            // 
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.Image = global::PracticeTask2016.Properties.Resources.minus;
+            this.button2.Location = new System.Drawing.Point(615, 82);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(45, 38);
+            this.button2.TabIndex = 2;
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Image = global::PracticeTask2016.Properties.Resources.plus;
+            this.button1.Location = new System.Drawing.Point(615, 38);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(45, 38);
+            this.button1.TabIndex = 0;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // lastNameDataGridViewTextBoxColumn
             // 
@@ -283,7 +286,9 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
