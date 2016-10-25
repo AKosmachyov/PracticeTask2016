@@ -59,9 +59,18 @@ namespace PracticeTask2016
 
         private void button4_Click(object sender, EventArgs e)
         {
-            var employees = Core.getEmployees();
-            var query = textBox1.Text;
-            var result = employees.Where(x=>x.address.house%2==0).First(x => x.address.street.Contains(query));
+           
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {   
+            var filtersList = Core.getEmployees();
+            if (textBox5.Text.Length > 0)
+                filtersList = Core.getEmployeesWithFilter(filtersList, textBox5.Text, "address.street");
+            if(radioButton2.Checked)
+                filtersList = Core.getHouseEven(filtersList);
+
+            dataGridView1.DataSource = filtersList;           
         }
     }
 }

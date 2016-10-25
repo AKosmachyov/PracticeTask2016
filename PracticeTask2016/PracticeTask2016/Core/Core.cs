@@ -52,5 +52,15 @@ namespace PracticeTask2016
         {
             _employees.Remove(employee);            
         }
+
+        static public BindingList<Employee> getEmployeesWithFilter(BindingList<Employee> list, string query, string field)
+        {
+            query = query.ToUpper();
+            return new BindingList<Employee>(list.Where(x => x.address.street.ToUpper().Contains(query)).ToList());           
+        }
+        static public BindingList<Employee> getHouseEven(BindingList<Employee> list)
+        {
+            return new BindingList<Employee>(list.Where(x => x.address.house % 2 == 0).ToList());
+        }
     }
 }
