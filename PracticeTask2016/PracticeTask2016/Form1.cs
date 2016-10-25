@@ -19,6 +19,7 @@ namespace PracticeTask2016
         {
             InitializeComponent();
             dataGridView1.DataSource = Core.getEmployees();
+            comboBox1.SelectedIndex = 0;
         }
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
@@ -64,10 +65,51 @@ namespace PracticeTask2016
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            var lastname = textBox1.Text;
-            var firstname = textBox2.Text;
-            //var t = comboBox1.SelectedIndex;            
-            dataGridView1.DataSource = Core.getEmployeesWithFilters(lastname);
+            var tt = new Employee();
+            
+            var filtersList = Core.getEmployees();
+            if (textBox1.Text.Length > 0)            
+                filtersList = Core.getEmployeesWithFilter(filtersList, textBox1.Text, "lastName");
+            if (textBox2.Text.Length > 0)
+                filtersList = Core.getEmployeesWithFilter(filtersList, textBox2.Text, "firstName");
+            if (textBox3.Text.Length > 0)
+                filtersList = Core.getEmployeesWithFilter(filtersList, textBox3.Text, "middleName");
+            if (textBox3.Text.Length > 0)
+                filtersList = Core.getEmployeesWithFilter(filtersList, textBox3.Text, "middleName");
+            if (checkBox1.Checked)
+            {
+                if (comboBox1.SelectedIndex == 0)
+                {
+                    filtersList = Core.getEmployeesWithFilter(filtersList, dateTimePicker1.Value);
+                }
+                else
+                {
+                    filtersList = Core.getEmployeesWithFilter(filtersList, dateTimePicker1.Value, dateTimePicker2.Value);
+                }
+            }
+            if (textBox4.Text.Length > 0)
+                filtersList = Core.getEmployeesWithFilter(filtersList, textBox4.Text, "phoneNumber");            
+            if (textBox5.Text.Length > 0)
+                filtersList = Core.getEmployeesWithFilter(filtersList, textBox5.Text, "address.street");
+            if(radioButton2.Checked)
+                filtersList = Core.getHouseEven(filtersList);
+
+            dataGridView1.DataSource = filtersList;           
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedIndex == 1)
+            {
+                label5.Visible = true;
+                label6.Visible = true;
+                dateTimePicker2.Visible = true;
+                return;
+            }
+            label5.Visible = false;
+            label6.Visible = false;
+            dateTimePicker2.Visible = false;
+
         }
     }
 }

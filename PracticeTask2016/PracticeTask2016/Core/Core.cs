@@ -53,12 +53,22 @@ namespace PracticeTask2016
             _employees.Remove(employee);            
         }
 
-        static public BindingList<Employee> getEmployeesWithFilters(string query)
+        static public BindingList<Employee> getEmployeesWithFilter(BindingList<Employee> list, string query, string field)
         {
-            var filterList = new BindingList<Employee>(_employees);
-            filterList = new BindingList<Employee>(filterList.Where(x => x.lastName.Contains(query)).ToList());
-         
-            return filterList;
+            query = query.ToUpper();
+            return new BindingList<Employee>(list.Where(x => typeof(Employee).GetProperty(field).GetValue(x).ToString().ToUpper().Contains(query)).ToList());           
+        }
+        static public BindingList<Employee> getEmployeesWithFilter(BindingList<Employee> list, DateTime query)
+        {            
+            return new BindingList<Employee>(list.Where(x => x.birthday == query).ToList());
+        }
+        static public BindingList<Employee> getEmployeesWithFilter(BindingList<Employee> list, DateTime query, DateTime query2)
+        {
+            return new BindingList<Employee>(list.Where(x => x.birthday >= query && x.birthday <= query2).ToList());
+        }
+        static public BindingList<Employee> getHouseEven(BindingList<Employee> list)
+        {
+            return new BindingList<Employee>(list.Where(x => x.address.house % 2 == 0).ToList());
         }
     }
 }
