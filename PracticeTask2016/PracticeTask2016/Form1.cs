@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.IO;
 using PracticeTask2016.Entity;
 
 namespace PracticeTask2016
@@ -41,7 +32,9 @@ namespace PracticeTask2016
             var window = new EmployeeEditor();
             this.Hide();
             window.ShowDialog();
+            textBox1_TextChanged(sender, e);
             this.Show();
+            textBox1_TextChanged(sender, e);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -57,11 +50,6 @@ namespace PracticeTask2016
             this.Show();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-           
-        }
-
         private void textBox1_TextChanged(object sender, EventArgs e)
         {   
             var filtersList = Core.getEmployees();
@@ -70,6 +58,14 @@ namespace PracticeTask2016
             if(radioButton2.Checked)
                 filtersList = Core.getHouseEven(filtersList);
 
+            int temp = 0;
+            for(var i = 0; filtersList.Count > i; i++)
+            {
+                temp += DateTime.Now.Year - filtersList[i].birthday.Year;
+            }
+            if (temp != 0)
+                label2.Text = (temp / filtersList.Count) + " лет";
+            var t = filtersList.Count;
             Core.filter = filtersList;
             dataGridView1.DataSource = filtersList;           
         }

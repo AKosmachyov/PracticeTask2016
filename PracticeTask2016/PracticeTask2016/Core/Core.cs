@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using PracticeTask2016.Entity;
 using System.ComponentModel;
 using System.Runtime.Serialization.Formatters.Binary;
