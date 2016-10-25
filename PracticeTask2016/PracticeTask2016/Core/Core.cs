@@ -7,6 +7,7 @@ using PracticeTask2016.Entity;
 using System.ComponentModel;
 using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
+using System.Windows.Forms;
 
 namespace PracticeTask2016
 {
@@ -36,16 +37,23 @@ namespace PracticeTask2016
 
         static public void openFile(string path)
         {
-            FileStream fs = new FileStream(path, FileMode.Open);
-            BinaryFormatter binFormat = new BinaryFormatter();
-            _employees.Clear();
-            var fileEmployees = (BindingList<Employee>)binFormat.Deserialize(fs);
-            foreach (var obj in fileEmployees)
+            try
             {
-                obj.createDate = DateTime.Now;
-                _employees.Add(obj);
+                FileStream fs = new FileStream(path, FileMode.Open);
+                BinaryFormatter binFormat = new BinaryFormatter();
+                _employees.Clear();
+                var fileEmployees = (BindingList<Employee>)binFormat.Deserialize(fs);
+                foreach (var obj in fileEmployees)
+                {
+                    obj.createDate = DateTime.Now;
+                    _employees.Add(obj);
+                }
+                fs.Close();
             }
-            fs.Close();
+            catch(Exception e)
+            {
+                MessageBox.Show("Ошибка открытия файла");
+            }
         }
 
         static public void deleteEmployees(Employee employee)
