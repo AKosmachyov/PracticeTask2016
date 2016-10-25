@@ -14,6 +14,7 @@ namespace PracticeTask2016
     static public class Core
     {
         static private BindingList<Employee> _employees = new BindingList<Employee>();
+        static public BindingList<Employee> filter = new BindingList<Employee>();
 
         static public BindingList<Employee> getEmployees()
         {
@@ -59,6 +60,7 @@ namespace PracticeTask2016
         static public void deleteEmployees(Employee employee)
         {
             _employees.Remove(employee);            
+            filter.Remove(employee);         
         }
 
         static public BindingList<Employee> getEmployeesWithFilter(BindingList<Employee> list, string query, string field)

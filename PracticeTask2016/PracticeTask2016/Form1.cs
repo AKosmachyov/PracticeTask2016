@@ -70,6 +70,7 @@ namespace PracticeTask2016
             if(radioButton2.Checked)
                 filtersList = Core.getHouseEven(filtersList);
 
+            Core.filter = filtersList;
             dataGridView1.DataSource = filtersList;           
         }
     }
