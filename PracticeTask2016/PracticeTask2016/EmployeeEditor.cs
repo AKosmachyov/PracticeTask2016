@@ -26,7 +26,7 @@ namespace PracticeTask2016
             maskedTextBox1.Text = employee.phoneNumber;            
             textBox5.Text = employee.address.street;
             textBox6.Text = employee.address.house.ToString();
-            textBox7.Text = employee.address.apartment.ToString();           
+            maskedTextBox2.Text = employee.address.apartment.ToString();           
             isNew = false;
         }
 
@@ -41,7 +41,7 @@ namespace PracticeTask2016
 
                 _employee.address.street = textBox5.Text;
                 _employee.address.house = Convert.ToUInt16(textBox6.Text);
-                _employee.address.apartment = Convert.ToUInt16(textBox7.Text);
+                _employee.address.apartment = Convert.ToUInt16(maskedTextBox2.Text);
 
                 _employee.lastName = textBox1.Text;
                 _employee.firstName = textBox2.Text;
@@ -80,7 +80,7 @@ namespace PracticeTask2016
                 message += " Улица,";
             if ((textBox6.Text.Trim(' ')).Length < 1)
                 message += " Дом,";
-            if ((textBox7.Text.Trim(' ')).Length < 1)
+            if ((maskedTextBox2.Text.Trim(' ')).Length < 1)
                 message += " Квартира,";
             if (dateTimePicker1.Value.Ticks > DateTime.Today.Ticks)                
                 message += " Дата рождения,";
