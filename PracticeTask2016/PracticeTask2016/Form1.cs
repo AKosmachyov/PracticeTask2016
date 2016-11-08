@@ -39,16 +39,32 @@ namespace PracticeTask2016
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Core.deleteEmployees((Employee)dataGridView1.CurrentRow.DataBoundItem);
+            try
+            {
+                if (dataGridView1.CurrentRow == null)
+                    throw new Exception("Не выделен объект для удаления");
+                Core.deleteEmployees((Employee)dataGridView1.CurrentRow.DataBoundItem);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            var window = new EmployeeEditor((Employee)dataGridView1.CurrentRow.DataBoundItem);
-            this.Hide();
-            window.ShowDialog();
-            this.Show();
-        }
+            try
+            {
+                if (dataGridView1.CurrentRow == null)
+                    throw new Exception("Не выделен объект для редактирования");
+                var window = new EmployeeEditor((Employee)dataGridView1.CurrentRow.DataBoundItem);
+                window.ShowDialog();
+            }             
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+}
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {   
