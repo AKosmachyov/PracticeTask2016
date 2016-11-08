@@ -47,8 +47,9 @@ namespace PracticeTask2016
                     _employees.Add(obj);
                 }
                 fs.Close();
+                filter = _employees;                         
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 MessageBox.Show("Ошибка открытия файла");
             }
@@ -68,6 +69,23 @@ namespace PracticeTask2016
         static public BindingList<Employee> getHouseEven(BindingList<Employee> list)
         {
             return new BindingList<Employee>(list.Where(x => x.address.house % 2 == 0).ToList());
+        }
+
+        static public string getStrMiddleAge()
+        {
+            int temp = 0;
+            for (var i = 0; filter.Count > i; i++)
+            {
+                temp += DateTime.Now.Year - filter[i].birthday.Year;
+            }
+            if (temp != 0)
+            {
+                return (temp / filter.Count) + " лет";
+            }
+            else
+            {
+                return "-";
+            }
         }
     }
 }

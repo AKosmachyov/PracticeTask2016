@@ -25,15 +25,13 @@ namespace PracticeTask2016
                 return;
             Core.openFile(openFileDialog1.FileName);
             dataGridView1.DataSource = Core.getEmployees();
+            label2.Text = Core.getStrMiddleAge();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             var window = new EmployeeEditor();
-            this.Hide();
             window.ShowDialog();
-            textBox1_TextChanged(sender, e);
-            this.Show();
             textBox1_TextChanged(sender, e);
         }
 
@@ -44,6 +42,7 @@ namespace PracticeTask2016
                 if (dataGridView1.CurrentRow == null)
                     throw new Exception("Не выделен объект для удаления");
                 Core.deleteEmployees((Employee)dataGridView1.CurrentRow.DataBoundItem);
+                textBox1_TextChanged(sender, e);
             }
             catch(Exception ex)
             {
@@ -59,6 +58,8 @@ namespace PracticeTask2016
                     throw new Exception("Не выделен объект для редактирования");
                 var window = new EmployeeEditor((Employee)dataGridView1.CurrentRow.DataBoundItem);
                 window.ShowDialog();
+                textBox1_TextChanged(sender, e);
+                dataGridView1.Refresh();            
             }             
             catch(Exception ex)
             {
@@ -74,16 +75,9 @@ namespace PracticeTask2016
             if(radioButton2.Checked)
                 filtersList = Core.getHouseEven(filtersList);
 
-            int temp = 0;
-            for(var i = 0; filtersList.Count > i; i++)
-            {
-                temp += DateTime.Now.Year - filtersList[i].birthday.Year;
-            }
-            if (temp != 0)
-                label2.Text = (temp / filtersList.Count) + " лет";
-            var t = filtersList.Count;
             Core.filter = filtersList;
             dataGridView1.DataSource = filtersList;           
+            label2.Text = Core.getStrMiddleAge();           
         }
     }
 }

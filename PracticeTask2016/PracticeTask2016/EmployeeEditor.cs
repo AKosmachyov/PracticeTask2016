@@ -9,6 +9,7 @@ namespace PracticeTask2016
         public EmployeeEditor()
         {
             InitializeComponent();
+            dateTimePicker1.Value = DateTime.Today;
         }
 
         public EmployeeEditor(Employee employee)
